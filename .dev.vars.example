@@ -1,0 +1,3 @@
+# Salin file ini menjadi ".dev.vars" (tanpa akhiran .example) untuk development lokal.
+# JANGAN commit file ".dev.vars" ke git (sudah masuk .gitignore).
+JWT_SECRET=ganti-dengan-string-acak-yang-panjang-untuk-development-lokal

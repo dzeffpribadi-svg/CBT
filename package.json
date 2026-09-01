@@ -1,0 +1,18 @@
+{
+  "name": "cbt-ulangan-harian",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PWA CBT Ulangan Harian Siswa - Cloudflare Workers + D1",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create cbt-ulangan-db",
+    "db:migrate:local": "wrangler d1 execute cbt-ulangan-db --local --file=./schema.sql",
+    "db:migrate:remote": "wrangler d1 execute cbt-ulangan-db --remote --file=./schema.sql",
+    "secret:jwt": "wrangler secret put JWT_SECRET",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}

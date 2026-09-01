@@ -1,0 +1,42 @@
+name = "cbt-ulangan-harian"
+main = "worker/src/index.js"
+compatibility_date = "2024-11-01"
+
+# ---------------------------------------------------------------------
+# D1 Database binding
+# Ganti "database_id" dengan ID hasil `wrangler d1 create cbt-ulangan-db`
+# ---------------------------------------------------------------------
+[[d1_databases]]
+binding = "DB"
+database_name = "cbt-ulangan-db"
+database_id = "GANTI_DENGAN_DATABASE_ID_ANDA"
+
+# ---------------------------------------------------------------------
+# R2 bucket untuk menyimpan gambar soal
+# Buat dengan: wrangler r2 bucket create cbt-soal-images
+# ---------------------------------------------------------------------
+[[r2_buckets]]
+binding = "IMAGES"
+bucket_name = "cbt-soal-images"
+
+# ---------------------------------------------------------------------
+# Static assets (frontend PWA) - Cloudflare Workers Static Assets
+# ---------------------------------------------------------------------
+[assets]
+directory = "./public"
+binding = "ASSETS"
+not_found_handling = "single-page-application"
+
+# ---------------------------------------------------------------------
+# Variabel non-rahasia (opsional)
+# ---------------------------------------------------------------------
+[vars]
+APP_NAME = "CBT Ulangan Harian Siswa"
+
+# ---------------------------------------------------------------------
+# Secret (JANGAN ditulis di sini). Set lewat CLI:
+#   wrangler secret put JWT_SECRET
+# ---------------------------------------------------------------------
+
+[observability]
+enabled = true
